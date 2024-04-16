@@ -1,0 +1,27 @@
+﻿@{
+    List<Product> products = ViewBag.Products;
+}
+
+    <h3>
+        Products:
+    </h3>
+
+    <ul>
+        @foreach (var item in products)
+        {
+           @*  if (item.Price < 300)
+            {
+                <li><a href="#">@item.Name - <span style="color:red">@item.Price</span></a></li>
+            }
+            else
+            {
+                <li><a href="#">@item.Name - <span style="color:green">@item.Price</span></a></li>
+            } *@
+
+@*             <li><a href="@Url.Action("detail","product",new{id=item.Id})">@item.Name - <span style="color:@(item.Price<300?"red":"green")">@item.Price</span></a></li>
+ *@
+            <li><a asp-action="detail" asp-route-id="@item.Id">@item.Name - <span style="color:@(item.Price<300?"red":"green")">@item.Price</span></a></li>
+ 
+        }
+    </ul>
+  
